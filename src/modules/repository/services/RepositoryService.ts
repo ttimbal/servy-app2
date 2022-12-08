@@ -14,8 +14,8 @@ async function getRepositories(userName: string, token: string): Promise<IReposi
 
 
             //const res = await HttpClient.post('https://lcar0i6l50.execute-api.us-east-1.amazonaws.com/v1/auth/authorization');
-    const res = await HttpClient.post('https://0l3y1drtyf.execute-api.us-east-1.amazonaws.com/prod/webhook',{'data':'test'});
-    console.log(res);
+    //const res = await HttpClient.post('https://0l3y1drtyf.execute-api.us-east-1.amazonaws.com/prod/webhook',{'data':'test'});
+    //console.log(res);
         return response.data
     } catch (e) {
         return []
