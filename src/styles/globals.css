@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    input{
+        @apply w-full block p-2 border-2 border-theme-primary rounded-md focus:border-theme-primary-light focus:outline-none
+    }
+
+    select{
+        @apply w-full block p-2 border-2 border-theme-primary rounded-md focus:border-theme-primary-light focus:outline-none
+    }
+
+    label{
+        @apply text-sm text-theme-primary font-semibold
+    }
+
+    form{
+        @apply space-y-4
+    }
+
+    button{
+        @apply p-3 rounded-md
+    }
+
+    h2{
+        @apply text-theme-primary text-2xl font-bold
+    }
+    h3{
+        @apply text-theme-primary text-xl font-bold
+    }
+}
+
+@layer components{
+    .btn-github{
+        @apply bg-theme-dark-gray text-white w-full
+    }
+
+    .btn-gradient{
+        @apply text-white w-full font-semibold
+    }
+}
+
+@layer utilities{
+    .blue-background{
+        background: linear-gradient(72.39deg, #020018 0.44%, #3022BC 99.47%);
+    }
+
+    .blue-background-button{
+        background: linear-gradient(72.39deg,  #020018 30%, #3022BC 99.47%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all .6s ease-out;
+    }
+
+    button.blue-background-button:hover{
+        background-position: left bottom;
+    }
+
+    .Block{
+        display: flex;
+        align-items: center;
+    }
+    #Resizable{
+        border: 1px solid black;
+        height: 200px;
+        width: 200px;
+    }
+    #Draggable{
+        background: rgba(1, 1, 1, 0.2);
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        cursor: col-resize;
+        height: 20px;
+        width: 10px;
+    }
+}
