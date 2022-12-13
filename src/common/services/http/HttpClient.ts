@@ -21,6 +21,7 @@ export class HttpClient{
     }
 
     public static async post<T>(url:string,payload:any={},options:any={}):Promise<AxiosResponse<T>>{
+        console.log(payload)
         return await HttpClient.client.post<T>(url,payload,{
             headers:options
         });

@@ -7,13 +7,19 @@ export interface IDatabase {
     owner_id:string,
     team_id:string,
     created_at:string
+    credentials:{
+        host:string,
+        port:string,
+        username:string,
+        password:string,
+    }
 }
 
 export const DatabaseTypes=[
     "MySQL",
     "PostgreSQL",
-    "Microsoft SQL Server",
-    "Amazon DynamoDB"
+/*    "Microsoft SQL Server",
+    "Amazon DynamoDB"*/
 ]
 
 export const initialState: DefaultState<IDatabase[],IDatabase> = {

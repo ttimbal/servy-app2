@@ -54,6 +54,10 @@
   "Servy is the tool you are looking for, connect your GitHub account and start deploying your projects": "Servy es la herramienta que estas buscando, conecta tu cuenta de GitHub y empieza a desplegar tus proyectos",
   "Do you want to streamline the use of your applications and avoid delays?": "¿Quieres agilizar el uso de tus aplicaciones y evitar demoras?",
   "With Servy you have the possibility to quickly deploy your Nodejs applications":"Con Servy tienes la posibilidad de realizar despliegues de tus aplicaciones Nodejs de manera rápida",
-  "You can also create databases to use in your projects!!": "Además puedes crear bases de datos para usar en tus proyectos!!"
+  "You can also create databases to use in your projects!!": "Además puedes crear bases de datos para usar en tus proyectos!!",
+  "Credentials": "Credenciales",
+  "Creating resources...": "Creando recursos...",
+  "Port": "Port",
+  "Host": "Host"
 
 }

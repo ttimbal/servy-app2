@@ -41,7 +41,7 @@ async function createWebHook(userName: string, repo: string, token: string): Pro
         "active": true,
         "events": ["push"],
         "config": {
-            "url": "https://28vctepgr3.execute-api.us-east-1.amazonaws.com/api/database/create",
+            "url": "https://ees77tjidg.execute-api.us-east-1.amazonaws.com/Prod/webhook/receiver",
             "content_type": "json",
             "insecure_ssl": "0"
         }
