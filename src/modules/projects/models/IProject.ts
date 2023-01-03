@@ -12,6 +12,8 @@ export interface IProject {
     branch:string,
     webhook:Webhook,
     created_at:string,
+    state:string,
+    app_url:string,
 }
 
 export const initialState: DefaultState<IProject[],IProject> = {

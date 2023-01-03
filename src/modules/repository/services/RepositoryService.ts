@@ -57,8 +57,22 @@ async function createWebHook(userName: string, repo: string, token: string): Pro
     }
 }
 
+async function deleteWebHook(userName: string, repo: string, token: string, hookID:string): Promise<Webhook | undefined> {
+    const url = `https://api.github.com/repos/${userName}/${repo}/hooks/${hookID}`;
+
+    try {
+        const response = await HttpClient.delete<any>(url, {
+            'Authorization': `Bearer ${token}`
+        });
+        return response.data
+    } catch (e) {
+        return undefined;
+    }
+}
+
 export {
     getRepositories,
     getBranches,
-    createWebHook
+    createWebHook,
+    deleteWebHook
 }

@@ -31,8 +31,10 @@ export class HttpClient{
         return await HttpClient.client.put<T>(url);
     }
 
-    public static async delete<T>(url:string):Promise<AxiosResponse<T>>{
-        return await HttpClient.client.delete<T>(url);
+    public static async delete<T>(url:string,options:any={}):Promise<AxiosResponse<T>>{
+        return await HttpClient.client.delete<T>(url,{
+            headers:options
+        });
     }
 
 }

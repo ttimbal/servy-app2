@@ -33,6 +33,7 @@
   "Select one repository": "Selecciona un repositorio",
   "Project Settings": "Configuración del proyecto",
   "Enable automatic deploy": "Habilitar despliegue automático",
+  "Disable automatic deploy": "Deshabilitar despliegue automático",
   "Start deploy": "Iniciar depliegue",
   "Activities": "Actividades",
   "Resources": "Recursos",
@@ -58,6 +59,9 @@
   "Credentials": "Credenciales",
   "Creating resources...": "Creando recursos...",
   "Port": "Port",
-  "Host": "Host"
+  "Host": "Host",
+  "State": "Estado",
+  "Open App": "Abrir app",
+  "No deployed": "Not desplegado"
 
 }

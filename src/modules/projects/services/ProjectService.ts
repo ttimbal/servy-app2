@@ -50,9 +50,14 @@ async function updateProject(id: string, values: any) {
     await FirestoreClient.updateField(COLLECTION_NAME, id, values);
 }
 
+async function setProject(id: string, values: any) {
+    await FirestoreClient.set(COLLECTION_NAME, values, id);
+}
+
 export {
     addProject,
     getProject,
     listenProjects,
-    updateProject
+    updateProject,
+    setProject
 }

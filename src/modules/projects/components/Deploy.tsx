@@ -11,12 +11,13 @@ import {
     selectRepositoryByName
 } from "../../repository/services/RepositorySlice";
 import useForm from "../../../common/hooks/useForm";
-import {createWebHook, getBranches} from "../../repository/services/RepositoryService";
-import {updateProject} from "../services/ProjectService";
+import {createWebHook, deleteWebHook, getBranches} from "../../repository/services/RepositoryService";
+import {setProject, updateProject} from "../services/ProjectService";
 import repository from "../../repository/components/Repository";
 import {useEffect, useState} from "react";
 import Resizable from "../../../common/components/elements/Resizable";
 import project from "./Project";
+import Link from "next/link";
 
 interface Props {
     project: IProject
@@ -50,7 +51,23 @@ function Setting(props: Props) {
         }
     }
 
-    return <div className={'flex justify-center items-center'}>
+    async function disableWebhook() {
+        if (auth.value!==null && currentRepo) {
+            try {
+                const response= await deleteWebHook(currentRepo.owner.login, currentRepo.name, auth.value.githubToken,currentProject.webhook.id);
+                    const {webhook,...newProject}=currentProject
+                console.log(newProject)
+                    await setProject(newProject.id,newProject);
+                    currentProject.webhook=undefined
+                    setMessage(t('Automatic deploy disabled'));
+            }catch (e) {
+                console.log(e)
+                setMessage(t('Oops! something went wrong, please retry more later'));
+            }
+        }
+    }
+
+    return <div className={'flex flex-col gap-5 justify-center items-center mb-10'}>
         <div className={'w-1/4 border p-5 rounded-md'}>
             <div>
                 <label htmlFor="">{t('Name')}</label>
@@ -67,12 +84,26 @@ function Setting(props: Props) {
                 <input type="text" name={'branch'} disabled={true} value={currentProject.branch}/>
             </div>
 
-            <button className={'btn-gradient blue-background-button mt-8'}>{t('Start deploy')}</button>
-            {currentProject.webhook===undefined &&
-                <button className={'btn-gradient blue-background-button mt-5'} onClick={enableWebhook}>{t('Enable automatic deploy')}</button>
+            {/*<button className={'btn-gradient blue-background-button mt-8'}>{t('Start deploy')}</button>*/}
+            {currentProject.webhook===undefined ?
+                <button className={'btn-gradient blue-background-button mt-5'} onClick={enableWebhook}>{t('Enable automatic deploy')}</button>:
+                <button className={'btn-gradient bg-red-500 mt-5'} onClick={disableWebhook}>{t('Disable automatic deploy')}</button>
             }
             {message.length!==0 && <span>{message}</span>}
         </div>
+        {currentProject.webhook!==undefined &&
+            <div className={'bg-gray-200 rounded p-5 flex flex-col gap-5'}>
+                <h2>{t('Automatic deploy enabled')}</h2>
+                <p>{t('State')}: {currentProject.state??t('Not deployed')}</p>
+                {currentProject.app_url &&
+                    <Link href={'http://'+currentProject.app_url}>
+                        <a target="_blank" rel="noopener noreferrer" className={'btn-github p-3 rounded-md'}>
+                            {t('Open App')}
+                        </a>
+                    </Link>
+                }
+            </div>
+        }
     </div>
 }
 
