@@ -91,9 +91,8 @@ function Setting(props: Props) {
             }
             {message.length!==0 && <span>{message}</span>}
         </div>
-        {currentProject.webhook!==undefined &&
             <div className={'bg-gray-200 rounded p-5 flex flex-col gap-5'}>
-                <h2>{t('Automatic deploy enabled')}</h2>
+                {currentProject.webhook!==undefined && <h2>{t('Automatic deploy enabled')}</h2>}
                 <p>{t('State')}: {currentProject.state??t('Not deployed')}</p>
                 {currentProject.app_url &&
                     <Link href={'http://'+currentProject.app_url}>
@@ -103,7 +102,6 @@ function Setting(props: Props) {
                     </Link>
                 }
             </div>
-        }
     </div>
 }
 
