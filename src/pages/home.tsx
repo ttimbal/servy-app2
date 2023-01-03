@@ -7,6 +7,7 @@ import {useTranslation} from "next-i18next";
 
 const Home = () => {
     const {t, i18n} = useTranslation();
+    
     return (
         <>
             <div className={'flex flex-col justify-center my-10 w-full h-screen items-center gap-5'}>
