@@ -48,7 +48,7 @@ const Home = () => {
                     <div className={'flex flex-col items-center justify-center w-1/2'}>
                         <span className={'block text-center text-white font-semibold mt-2'}>{t('Nodejs')}</span>
                         <span
-                            className={'block text-center text-white font-semibold mt-5'}>{t('With Servy you have the possibility to quickly deploy your Nodejs applications')}</span>
+                            className={'block text-center text-white font-semibold mt-5'}>{t('With Servy you have the possibility to quickly deploy your Node.js applications')}</span>
                     </div>
                 </div>
 
